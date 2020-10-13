@@ -9,7 +9,7 @@ def get_new_entry_key(db, entry):
     if entry.key.lower() in db:
         existing_entry = db.get(entry.key.lower())
         if entry.get('title') == existing_entry.get('title'):
-            print("nothing to do, entry already in the database")
+            print("null")
             return None
         else:
             entry.key += 'a'
@@ -46,7 +46,7 @@ def main():
             with open(original_bib, 'a') as fil:
                 ent.pop('url')
                 fil.write(f"\n{ent.to_bib()}")
-                print(ent.to_bib())
+                print(ent.key)
 
 if __name__ == '__main__':
     main()
